@@ -121,7 +121,7 @@ s:Ge/PDDLineBox/Type = "TsBox"
 s:Ge/PDDLineBox/Parent = "World"
 b:Ge/PDDLineBox/IsParallel = "True"  
 s:Ge/PDDLineBox/ParallelWorldName = "ScoringWorld_PDD_Box"
-d:Ge/PDDLineBox/HLX = 4.87 mm  # Se escogen estas dimensiones para que el área XY sea lo más parecida al área de la cámara de ionización PTW Semiflex Chamber 31010
+d:Ge/PDDLineBox/HLX = 4.87 mm # Se procura simular área transversal de la PTW Semiflex Chamber 31010
 d:Ge/PDDLineBox/HLY = 4.87 mm
 d:Ge/PDDLineBox/HLZ = 16. cm  # Cambiar este volumen conforme se cambia el espesor del volumen de aire por encima del fantoma
 d:Ge/PDDLineBox/TransX = 0.0 cm
@@ -152,26 +152,28 @@ s:Sc/PDDLineBox/OutputFile = "PDD_Box_06"
 s:Sc/PDDLineBox/IfOutputFileAlreadyExists = "Overwrite"
 sv:Sc/PDDLineBox/Report = 1 "Sum"
 ## ----------------------------------------------------------------
+## Volumen de Prueba - Simulación geometría PTW Semiflex 31010
+
 # PDD dentro del agua - TsCylinder:
-s:Ge/PDDLineCylinder/Type = "TsCylinder"
-s:Ge/PDDLineCylinder/Parent = "World"
-b:Ge/PDDLineCylinder/IsParallel	= "True"  
-s:Ge/PDDLineCylinder/ParallelWorldName = "ScoringWorld_PDD_Cylinder"
-d:Ge/PDDLineCylinder/RMin = 0. mm  # Se escogen estas dimensiones para que el área XY sea lo más parecida al área de la cámara de ionización PTW Semiflex Chamber 31010
-d:Ge/PDDLineCylinder/RMax = 2.75 mm
-d:Ge/PDDLineCylinder/HL = 16. cm  # Cambiar este volumen conforme se cambia el espesor del volumen de aire por encima del fantoma
-d:Ge/PDDLineCylinder/SPhi = 0. deg
-d:Ge/PDDLineCylinder/DPhi = 360. deg
-d:Ge/PDDLineCylinder/TransX = 0.0 cm
-d:Ge/PDDLineCylinder/TransY = 0.0 cm
-d:Ge/PDDLineCylinder/TransZ = 114.0 cm  # Centra para que empiece ~en superficie
-b:Ge/PDDLineCylinder/IsVolumetricallyDivided = "True"
-i:Ge/PDDLineCylinder/RBins = 1
-i:Ge/PDDLineCylinder/PhiBins = 1
-i:Ge/PDDLineCylinder/ZBins = 320
+#s:Ge/PDDLineCylinder/Type = "TsCylinder"
+#s:Ge/PDDLineCylinder/Parent = "World"
+#b:Ge/PDDLineCylinder/IsParallel	= "True"  
+#s:Ge/PDDLineCylinder/ParallelWorldName = "ScoringWorld_PDD_Cylinder"
+#d:Ge/PDDLineCylinder/RMin = 0. mm
+#d:Ge/PDDLineCylinder/RMax = 2.75 mm
+#d:Ge/PDDLineCylinder/HL = 16. cm  # Cambiar este volumen conforme se cambia el espesor del volumen de aire por encima del fantoma
+#d:Ge/PDDLineCylinder/SPhi = 0. deg
+#d:Ge/PDDLineCylinder/DPhi = 360. deg
+#d:Ge/PDDLineCylinder/TransX = 0.0 cm
+#d:Ge/PDDLineCylinder/TransY = 0.0 cm
+#d:Ge/PDDLineCylinder/TransZ = 114.0 cm  # Centra para que empiece ~en superficie
+#b:Ge/PDDLineCylinder/IsVolumetricallyDivided = "True"
+#i:Ge/PDDLineCylinder/RBins = 1
+#i:Ge/PDDLineCylinder/PhiBins = 1
+#i:Ge/PDDLineCylinder/ZBins = 320
 # Scorer Dosis en el medio (DoseToMedium) sobre PDDLine, reporta CSV sum
-s:Sc/PDDLineCylinder/Quantity = "DoseToMedium"
-s:Sc/PDDLineCylinder/Component = "PDDLineCylinder"
+#s:Sc/PDDLineCylinder/Quantity = "DoseToMedium"
+#s:Sc/PDDLineCylinder/Component = "PDDLineCylinder"
 
 #### Archivos de salida - ACTIVAR SOLO UNO POR EJECUCIÓN, RESPECTIVO AL ARCHIVO DE ESPACIO DE FASE CONSIDERADO:
 # (1/6):
@@ -185,11 +187,13 @@ s:Sc/PDDLineCylinder/Component = "PDDLineCylinder"
 # (5/6):
 #s:Sc/PDDLineCylinder/OutputFile = "PDD_Cylinder_05"
 # (6/6):
-s:Sc/PDDLineCylinder/OutputFile = "PDD_Cylinder_06"
+#s:Sc/PDDLineCylinder/OutputFile = "PDD_Cylinder_06"
 
-s:Sc/PDDLineCylinder/IfOutputFileAlreadyExists = "Overwrite"
-sv:Sc/PDDLineCylinder/Report = 1 "Sum"
+#s:Sc/PDDLineCylinder/IfOutputFileAlreadyExists = "Overwrite"
+#sv:Sc/PDDLineCylinder/Report = 1 "Sum"
 ## ----------------------------------------------------------------
+## Verificación del tamaño de campo incidente:
+
 ## Mapa de dosis 2D en la superficie:
 #s:Ge/SurfMap/Type = "TsBox"
 #s:Ge/SurfMap/Parent  = "World"
@@ -228,4 +232,3 @@ i:Ts/NumberOfThreads = 8 # Change to 0 to use all available threads
 b:Ts/ShowCPUTime = "True"
 #b:Ts/PauseBeforeQuit = "False"  # Cambiar a "True" cuando se ejecute la visualización
 # ----------------------------------------------------------------
-
