@@ -1,0 +1,52 @@
+# SIMULACIÓN COBALTO-60 - SIN DETECTOR
+
+# El propósito de la presente simulación es simular un procedimiento de calibración dosimétrica usando un haz de referencia producido por una fuente de Co-60, El haz de referencia irradia un cubo de agua de 30x30x30 cm3 a distintas distancias entre la fuente y la superficie (SSD) y con diferentes tamaños de campo incidente
+
+# _________________________________________________________________________________________________________________________
+
+# Configuración Gráfica
+
+iv:Gr/Color/TransparentRed = 4 255 0 255 200
+iv:Gr/Color/TransparentBlue = 4 0 0 255 200
+s:Gr/ViewA/Type = "OpenGL"
+i:Gr/ViewA/WindowSizeX = 700
+i:Gr/ViewA/WindowSizeY = 1400
+u:Gr/ViewA/Zoom = 1.
+d:Gr/ViewA/Theta = 89. deg
+d:Gr/ViewA/Phi = 0. deg
+b:Gr/ViewA/IncludeAxes = "True"
+d:Gr/ViewA/AxesSize = 100. cm
+s:Gr/ViewA/AxesComponent = "World"
+
+# Física
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+# Control General
+
+i:Ts/ShowHistoryCountAtInterval = 100000
+b:Gr/Enable = "True"
+b:Ts/UseQt = "True" # Cambiar a "False" para desactivar la Interfaz Gráfica
+i:Ts/NumberOfThreads = 2
+b:Ts/ShowCPUTime = "True"
+
+# Definición del World
+
+s:Ge/World/Material = "Air"
+d:Ge/World/LX = 5. m
+d:Ge/World/LY = 5. m
+d:Ge/World/LZ = 5. m
+b:Ge/World/Invisible = "True"
+
+# Definición del Volumen Irradiado - Cubo de Agua
+
+s:Ge/CuboAgua/Type = "TsBox"
+s:Ge/CuboAgua/Parent = "World"
+s:Ge/CuboAgua/Material = "G4_WATER"
+s:Ge/CuboAgua/Color = "skyblue"
+d:Ge/CuboAgua/HLX = 15. cm # Half-Lenght
+d:Ge/CuboAgua/HLY = 15. cm
+d:Ge/CuboAgua/HLZ = 15. cm
+
+
+

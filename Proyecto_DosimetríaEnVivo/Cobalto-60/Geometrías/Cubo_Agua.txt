@@ -1,0 +1,10 @@
+# SIMULACIÓN HAZ DE RADIACIÓN DE REFERENCIA - COBALTO-60
+# GEOMETRÍA - Cubo de agua de 30x30x30 cm3
+
+s:Ge/CuboAgua/Parent = "World"
+s:Ge/CuboAgua/Type = "TsBox"
+s:Ge/CuboAgua/Type = "G4_WATER"
+d:Ge/CuboAgua/LX = 30. cm
+d:Ge/CuboAgua/LY = 30. cm
+d:Ge/CuboAgua/LZ = 30. cm
+d:Ge/
