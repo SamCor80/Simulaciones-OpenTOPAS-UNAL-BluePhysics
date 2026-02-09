@@ -24,6 +24,7 @@ sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
 
 # Control General
 
+i:Ts/Seed = 1
 i:Ts/ShowHistoryCountAtInterval = 100000
 b:Gr/Enable = "True"
 b:Ts/UseQt = "True" # Cambiar a "False" para desactivar la Interfaz Gráfica
@@ -43,11 +44,45 @@ b:Ge/World/Invisible = "True"
 s:Ge/CuboAgua/Type = "TsBox"
 s:Ge/CuboAgua/Parent = "World"
 s:Ge/CuboAgua/Material = "G4_WATER"
-s:Ge/CuboAgua/Color = "skyblue"
+s:Ge/CuboAgua/Color = "lightblue"
+## Dimensión
 d:Ge/CuboAgua/HLX = 15. cm # Half-Lenght
 d:Ge/CuboAgua/HLY = 15. cm
 d:Ge/CuboAgua/HLZ = 15. cm
+## Posición
+d:Ge/CuboAgua/TransZ = 115. cm
+
 
 # Configuración Espacial
+
+d:Ge/SSD = 100. cm
+
+# Esquema de Puntuación
+
+## PDD
+
+s:Ge/PDD/Type = "TsBox"
+s:Ge/PDD/Parent = "World"
+b:Ge/PDD/IsParallel = "True"
+s:Ge/PDD/ParallelWorldName = "ScoringWorld_PDD"
+s:Ge/PDD/Color = "green"
+## Dimensión
+d:Ge/PDD/HLX = 2.44 mm
+d:Ge/PDD/HLY = 2.44 mm
+d:Ge/PDD/HLZ = 16. cm
+## Posición
+d:Ge/PDD/TransX = 0. cm
+d:Ge/PDD/TransY = 0. cm
+d:Ge/PDD/TransZ = 114. cm
+b:Ge/PDD/IsVolumetricallyDivided = "True"
+i:Ge/PDD/XBins = 1
+i:Ge/PDD/YBins = 1
+i:Ge/PDD/ZBins = 320
+s:Sc/PDD/Quantity = "DoseToMedium"
+s:Sc/PDD/Component = "PDD"
+s:Sc/PDD/OutputFile = "Resultados/PorcentajeDosisAProfundidad"
+s:Sc/PDD/OutputType = "csv"
+s:Sc/PDD/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PDD/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
 
 
