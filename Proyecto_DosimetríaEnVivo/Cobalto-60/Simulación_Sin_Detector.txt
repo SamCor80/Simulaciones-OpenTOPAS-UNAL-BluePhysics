@@ -9,8 +9,8 @@
 iv:Gr/Color/TransparentRed = 4 255 0 255 200
 iv:Gr/Color/TransparentBlue = 4 0 0 255 200
 s:Gr/ViewA/Type = "OpenGL"
-i:Gr/ViewA/WindowSizeX = 700
-i:Gr/ViewA/WindowSizeY = 1400
+i:Gr/ViewA/WindowSizeX = 900
+i:Gr/ViewA/WindowSizeY = 900
 u:Gr/ViewA/Zoom = 1.
 d:Gr/ViewA/Theta = 89. deg
 d:Gr/ViewA/Phi = 0. deg
@@ -21,6 +21,13 @@ s:Gr/ViewA/AxesComponent = "World"
 # Física
 
 sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+# Materiales
+
+sv:Ma/PMMA/Components = 3 "Carbon" "Hydrogen" "Oxygen"
+uv:Ma/PMMA/Fractions = 3 0.599848 0.080538 0.319614
+d:Ma/PMMA/Density = 1.180 g/cm3
+s:Ma/PMMA/DefaultColor = "gray"
 
 # Control General
 
@@ -39,50 +46,144 @@ d:Ge/World/LY = 5. m
 d:Ge/World/LZ = 5. m
 b:Ge/World/Invisible = "True"
 
-# Definición del Volumen Irradiado - Cubo de Agua
-
-s:Ge/CuboAgua/Type = "TsBox"
-s:Ge/CuboAgua/Parent = "World"
-s:Ge/CuboAgua/Material = "G4_WATER"
-s:Ge/CuboAgua/Color = "lightblue"
-## Dimensión
-d:Ge/CuboAgua/HLX = 15. cm # Half-Lenght
-d:Ge/CuboAgua/HLY = 15. cm
-d:Ge/CuboAgua/HLZ = 15. cm
-## Posición
-d:Ge/CuboAgua/TransZ = 115. cm
-
-
 # Configuración Espacial
 
 d:Ge/SSD = 100. cm
 
+# Definición del Volumen Irradiado - Fantoma de Agua
+
+## Recipiente/Paredes
+s:Ge/ParedesFantoma/Type = "TsBox"
+s:Ge/ParedesFantoma/Parent = "World"
+s:Ge/ParedesFantoma/Material = "PMMA"
+s:Ge/ParedesFantoma/Color = "gray"
+d:Ge/ParedesFantoma/HLX = 15. cm
+d:Ge/ParedesFantoma/HLY = 15. cm
+d:Ge/ParedesFantoma/HLZ = 15. cm
+d:Ge/ParedesFantoma/TransX = 0. cm
+d:Ge/ParedesFantoma/TransY = 0. cm
+d:Ge/ParedesFantoma/TransZ = 115. cm
+d:Ge/ParedesFantoma/RotX = 0. deg
+d:Ge/ParedesFantoma/RotY = 0. deg
+d:Ge/ParedesFantoma/RotZ = 0. deg
+## Geometría para la ventana de entrada del haz
+s:Ge/VentanaFantoma/Type = "TsBox"
+s:Ge/VentanaFantoma/Parent = "ParedesFantoma"
+s:Ge/VentanaFantoma/Material = "Air"
+s:Ge/VentanaFantoma/Color = "gray"
+d:Ge/VentanaFantoma/HLX = 8.5 cm
+d:Ge/VentanaFantoma/HLY = 8.5 cm
+d:Ge/VentanaFantoma/HLZ = 0.35 cm
+d:Ge/VentanaFantoma/TransX = 0. cm
+d:Ge/VentanaFantoma/TransY = 0. cm
+d:Ge/VentanaFantoma/TransZ = -14.65 cm
+## Contenido
+s:Ge/CubaAgua/Type = "TsBox"
+s:Ge/CubaAgua/Parent = "ParedesFantoma"
+s:Ge/CubaAgua/Material = "G4_WATER"
+s:Ge/CubaAgua/Color = "lightblue"
+#s:Ge/CubaAgua/DrawingStyle = "Solid"
+d:Ge/CubaAgua/HLX = 14. cm 
+d:Ge/CubaAgua/HLY = 14.5 cm
+d:Ge/CubaAgua/HLZ = 14. cm
+d:Ge/CubaAgua/TransX = 0. cm
+d:Ge/CubaAgua/TransY = 0.5 cm
+d:Ge/CubaAgua/TransZ = 0. cm
+
+# Definición de la Fuente
+
+## Posición del Beam
+s:Ge/PosicionBeam/Parent = "World"
+s:Ge/PosicionBeam/Type = "Group"
+d:Ge/PosicionBeam/TransX = 0. m
+d:Ge/PosicionBeam/TransY = 0. m
+d:Ge/PosicionBeam/TransZ = 0. m
+d:Ge/PosicionBeam/RotX = 0. deg
+d:Ge/PosicionBeam/RotY = 0. deg
+d:Ge/PosicionBeam/RotZ = 0. deg
+## Parámetros del Beam
+s:So/HazCobalto60/Type = "Beam"
+s:So/HazCobalto60/Component = "PosicionBeam"
+s:So/HazCobalto60/BeamParticle = "gamma"
+s:So/HazCobalto60/BeamEnergySpectrumType = "Discrete"
+dv:So/HazCobalto60/BeamEnergySpectrumValues = 2 1.1732 1.3325 MeV
+uv:So/HazCobalto60/BeamEnergySpectrumWeights = 2 0.5 0.5
+s:So/HazCobalto60/BeamPositionDistribution = "Flat"
+s:So/HazCobalto60/BeamPositionCutoffShape = "Rectangle"
+d:So/HazCobalto60/BeamPositionCutoffX = 5. cm
+d:So/HazCobalto60/BeamPositionCutoffY = 5. cm
+s:So/HazCobalto60/BeamAngularDistribution = "None"
+i:So/HazCobalto60/NumberOfHistoriesInRun = 100
+
 # Esquema de Puntuación
 
-## PDD
+s:Ge/World/Message = "Resultados/Co-60_"
 
+## PDD
 s:Ge/PDD/Type = "TsBox"
-s:Ge/PDD/Parent = "World"
+s:Ge/PDD/Parent = "ParedesFantoma"
 b:Ge/PDD/IsParallel = "True"
 s:Ge/PDD/ParallelWorldName = "ScoringWorld_PDD"
 s:Ge/PDD/Color = "green"
-## Dimensión
 d:Ge/PDD/HLX = 2.44 mm
 d:Ge/PDD/HLY = 2.44 mm
-d:Ge/PDD/HLZ = 16. cm
-## Posición
+d:Ge/PDD/HLZ = 15. cm
 d:Ge/PDD/TransX = 0. cm
 d:Ge/PDD/TransY = 0. cm
-d:Ge/PDD/TransZ = 114. cm
+d:Ge/PDD/TransZ = -1. cm
 b:Ge/PDD/IsVolumetricallyDivided = "True"
 i:Ge/PDD/XBins = 1
 i:Ge/PDD/YBins = 1
 i:Ge/PDD/ZBins = 320
 s:Sc/PDD/Quantity = "DoseToMedium"
 s:Sc/PDD/Component = "PDD"
-s:Sc/PDD/OutputFile = "Resultados/PorcentajeDosisAProfundidad"
+s:Sc/PDD/OutputFile = Ge/World/Message + "PDD"
 s:Sc/PDD/OutputType = "csv"
 s:Sc/PDD/IfOutputFileAlreadyExists = "Overwrite"
 sv:Sc/PDD/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
+## Perfil transversal X
+s:Ge/PerfilX/Type = "TsBox"
+s:Ge/PerfilX/Parent = "ParedesFantoma"
+b:Ge/PerfilX/IsParallel = "True"
+s:Ge/PerfilX/ParallelWorldName = "ScoringWorld_PerfilX"
+s:Ge/PerfilX/Color = "yellow"
+d:Ge/PerfilX/HLX = 10. cm
+d:Ge/PerfilX/HLY = 2.44 mm
+d:Ge/PerfilX/HLZ = 2.44 mm
+d:Ge/PerfilX/TransX = 0. cm
+d:Ge/PerfilX/TransY = 0. cm
+d:Ge/PerfilX/TransZ = -9.244 cm
+b:Ge/PerfilX/IsVolumetricallyDivided = "True"
+i:Ge/PerfilX/XBins = 200
+i:Ge/PerfilX/YBins = 1
+i:Ge/PerfilX/ZBins = 1
+s:Sc/PerfilX/Quantity = "DoseToMedium"
+s:Sc/PerfilX/Component = "PerfilX"
+s:Sc/PerfilX/OutputFile = Ge/World/Message + "PerfilX"
+s:Sc/PerfilX/OutputType = "csv"
+s:Sc/PerfilX/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PerfilX/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
+## Perfil transversal Y
+s:Ge/PerfilY/Type = "TsBox"
+s:Ge/PerfilY/Parent = "ParedesFantoma"
+b:Ge/PerfilY/IsParallel = "True"
+s:Ge/PerfilY/ParallelWorldName = "ScoringWorld_PerfilY"
+s:Ge/PerfilY/Color = "magenta"
+d:Ge/PerfilY/HLX = 2.44 mm
+d:Ge/PerfilY/HLY = 10. cm
+d:Ge/PerfilY/HLZ = 2.44 mm
+d:Ge/PerfilY/TransX = 0. cm
+d:Ge/PerfilY/TransY = 0. cm
+d:Ge/PerfilY/TransZ = -9.244 cm
+b:Ge/PerfilY/IsVolumetricallyDivided = "True"
+i:Ge/PerfilY/XBins = 1
+i:Ge/PerfilY/YBins = 200
+i:Ge/PerfilY/ZBins = 1
+s:Sc/PerfilY/Quantity = "DoseToMedium"
+s:Sc/PerfilY/Component = "PerfilY"
+s:Sc/PerfilY/OutputFile = Ge/World/Message + "PerfilY"
+s:Sc/PerfilY/OutputType = "csv"
+s:Sc/PerfilY/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PerfilY/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
 
 
