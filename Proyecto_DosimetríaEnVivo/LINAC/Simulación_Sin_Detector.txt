@@ -1,0 +1,348 @@
+# SIMULACIÓN COBALTO-60 - SIN DETECTOR
+
+# El propósito de la presente simulación es simular un procedimiento de calibración dosimétrica usando un haz de referencia producido por una fuente de Co-60, El haz de referencia irradia un cubo de agua de 30x30x30 cm3 a distintas distancias entre la fuente y la superficie (SSD) y con diferentes tamaños de campo incidente
+
+# _________________________________________________________________________________________________________________________
+
+# Configuración Gráfica
+
+s:Gr/ViewA/Type = "OpenGL"
+iv:Gr/Color/TransparentRed = 4 255 0 255 200
+iv:Gr/Color/TransparentBlue = 4 0 0 255 200
+i:Gr/ViewA/WindowSizeX = 900
+i:Gr/ViewA/WindowSizeY = 900
+u:Gr/ViewA/Zoom = 1.
+d:Gr/ViewA/Theta = 90. deg
+d:Gr/ViewA/Phi = 0. deg
+s:Gr/ViewA/Projection = "Perspective"
+d:Gr/ViewA/PerspectiveAngle = 0. deg
+b:Gr/ViewA/IncludeAxes = "True"
+d:Gr/ViewA/AxesSize = 100. cm
+s:Gr/ViewA/AxesComponent = "World"
+
+# Física
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+# Materiales
+
+sv:Ma/PMMA/Components = 3 "Carbon" "Hydrogen" "Oxygen"
+uv:Ma/PMMA/Fractions = 3 0.599848 0.080538 0.319614
+d:Ma/PMMA/Density = 1.180 g/cm3
+s:Ma/PMMA/DefaultColor = "gray"
+
+# Control General
+
+i:Ts/Seed = 1
+i:Ts/ShowHistoryCountAtInterval = 100000
+#b:Gr/Enable = "True"
+#b:Ts/UseQt = "True" # Cambiar a "False" para desactivar la Interfaz Gráfica
+b:Gr/Enable = "False"
+b:Ts/UseQt = "False"
+i:Ts/NumberOfThreads = 0
+b:Ts/ShowCPUTime = "True"
+
+# Definición del World
+
+s:Ge/World/Material = "Air"
+d:Ge/World/LX = 5. m
+d:Ge/World/LY = 5. m
+d:Ge/World/LZ = 5. m
+b:Ge/World/Invisible = "True"
+
+# Sistemas de Coordenadas - IEC 61217 (2011)
+
+## Coordenadas Fijas - IEC_F
+s:Ge/IEC_F/Type = "Group"
+s:Ge/IEC_F/Parent = "World"
+d:Ge/IEC_F/TransX = 0. cm
+d:Ge/IEC_F/TransY = 0. cm
+d:Ge/IEC_F/TransZ = 0. cm
+## Coordenadas Gantry - IEC_G
+s:Ge/IEC_G/Type = "Group"
+s:Ge/IEC_G/Parent = "IEC_F"
+d:Ge/IEC_G/TransX = 0. cm
+d:Ge/IEC_G/TransY = 0. cm
+d:Ge/IEC_G/TransZ = 0. cm
+dc:Ge/IEC_G/RotX = 0. deg
+dc:Ge/IEC_G/RotY = 0. deg
+## Coordenadas Colimación Haz - IEC_B
+s:Ge/IEC_B/Type = "Group"
+s:Ge/IEC_B/Parent = "IEC_G"
+d:Ge/IEC_B/TransX = 0. cm
+d:Ge/IEC_B/TransY = 0. cm
+dc:Ge/IEC_B/TransZ = 0. cm
+dc:Ge/IEC_B/RotZ = 0. deg
+## Coordenadas Soporte - IEC_S
+s:Ge/IEC_S/Type = "Group"
+s:Ge/IEC_S/Parent = "IEC_F"
+d:Ge/IEC_S/TransX = 0. cm
+dc:Ge/IEC_S/TransY = 0. cm
+d:Ge/IEC_S/TransZ = 0. cm
+dc:Ge/IEC_S/RotZ = 0. deg
+## Coordenadas Paciente - IEC_P
+s:Ge/IEC_P/Type = "Group"
+s:Ge/IEC_P/Parent = "IEC_S"
+dc:Ge/IEC_P/TransX = 0. cm
+dc:Ge/IEC_P/TransY = 0. cm
+dc:Ge/IEC_P/TransZ = -15. cm
+dc:Ge/IEC_P/RotX = 0. deg
+dc:Ge/IEC_P/RotY = 0. deg
+dc:Ge/IEC_P/RotZ = 0. deg
+
+# Configuración Espacial
+
+d:Ge/SSD = 100. cm
+
+# Definición de Geometrías
+
+## Volumen Irradiado - Fantoma de Agua PTW T41023
+
+## Paredes
+s:Ge/PhantomWalls/Type = "TsBox"
+s:Ge/PhantomWalls/Parent = "IEC_P"
+s:Ge/PhantomWalls/Material = "PMMA"
+s:Ge/PhantomWalls/Color = "gray"
+d:Ge/PhantomWalls/HLX = 15. cm
+d:Ge/PhantomWalls/HLY = 15. cm
+d:Ge/PhantomWalls/HLZ = 15. cm
+d:Ge/PhantomWalls/TransX = 0. cm
+d:Ge/PhantomWalls/TransY = 0. cm
+d:Ge/PhantomWalls/TransZ = -0.5 cm 
+dc:Ge/PhantomWalls/RotX = 90. deg
+d:Ge/PhantomWalls/RotY = 0. deg
+d:Ge/PhantomWalls/RotZ = 0. deg
+## Geometría para la ventana de entrada del haz
+s:Ge/PhantomWindow/Type = "TsBox"
+s:Ge/PhantomWindow/Parent = "PhantomWalls"
+s:Ge/PhantomWindow/Material = "Air"
+s:Ge/PhantomWindow/Color = "gray"
+d:Ge/PhantomWindow/HLX = 8.5 cm
+d:Ge/PhantomWindow/HLY = 8.5 cm
+d:Ge/PhantomWindow/HLZ = 0.35 cm
+d:Ge/PhantomWindow/TransX = 0. cm
+d:Ge/PhantomWindow/TransY = 0. cm
+d:Ge/PhantomWindow/TransZ = -14.65 cm
+## Agua
+s:Ge/PhantomWater/Type = "TsBox"
+s:Ge/PhantomWater/Parent = "PhantomWalls"
+s:Ge/PhantomWater/Material = "G4_WATER"
+s:Ge/PhantomWater/Color = "lightblue"
+s:Ge/PhantomWater/DrawingStyle = "Wireframe" # "Wireframe" "FullWireFrame"
+d:Ge/PhantomWater/HLX = 14. cm 
+d:Ge/PhantomWater/HLY = 14.5 cm
+d:Ge/PhantomWater/HLZ = 14. cm
+d:Ge/PhantomWater/TransX = 0. cm
+d:Ge/PhantomWater/TransY = -0.5 cm
+d:Ge/PhantomWater/TransZ = 0. cm
+
+## Colimador Multiláminas - MLC
+
+s:Ge/MLC/Type = "TsDivergingMLC"
+s:Ge/MLC/Parent = "IEC_B"
+s:Ge/MLC/Material = "G4_W"
+d:Ge/MLC/SAD = Ge/SSD cm
+d:Ge/MLC/SourceToUpstreamSurfaceDistance = 35.33 cm
+d:Ge/MLC/Thickness = 7.8 cm
+d:Ge/MLC/Length = 30. cm
+d:Ge/MLC/MaximumLeafOpen = 15. cm
+s:Ge/MLC/LeafTravelAxis = "Yb"
+dv:Ge/MLC/LeafWidths = 62 20. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 20. mm
+dv:Ge/MLC/NegativeFieldSetting = 62 0. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10 -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. 0. cm
+dv:Ge/MLC/PositiveFieldSetting = 62 0. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 0. cm
+d:Ge/MLC/DistSourceToSAD = Ge/MLC/SAD - Ge/MLC/SourceToUpstreamSurfaceDistance cm
+d:Ge/MLC/HalfT = 0.5 * Ge/MLC/Thickness cm
+d:Ge/MLC/TransZ = Ge/MLC/DistSourceToSAD - Ge/MLC/HalfT cm
+s:Ge/MLC/DrawingStyle = "Solid"
+s:Ge/MLC/Color = "yellow"
+
+## Mandíbulas - Jaws
+
+## JawX
+s:Ge/JawX/Type = "TsJaws"
+s:Ge/JawX/Parent = "IEC_B"
+s:Ge/JawX/Material = "G4_W"
+d:Ge/JawX/LX = 20. cm 
+d:Ge/JawX/LY = 30. cm
+d:Ge/JawX/LZ = 7.8 cm
+s:Ge/JawX/JawTravelAxis = "Xb"
+d:Ge/JawX/SAD = Ge/SSD cm
+dc:Ge/JawX/SourceToUpstreamSurfaceDistance = 19.73 cm # Distancia desde el target hasta el jaw
+d:Ge/JawX/DistSourceToSAD = Ge/JawX/SAD - Ge/JawX/SourceToUpstreamSurfaceDistance cm
+d:Ge/JawX/HalfLZ = 0.5 * Ge/JawX/LZ cm
+d:Ge/JawX/TransZ = Ge/JawX/DistSourceToSAD - Ge/JawX/HalfLZ cm
+dc:Ge/JawX/NegativeFieldSetting = -10. cm
+dc:Ge/JawX/PositiveFieldSetting = 10. cm
+d:Ge/JawX/JawRotZforTravelAlongIECX = 0. deg
+d:Ge/JawX/JawRotZforTravelAlongIECY = -90. deg
+d:Ge/JawX/RotZ= Ge/JawX/JawRotZforTravelAlongIECX deg
+s:Ge/JawX/DrawingStyle = "Solid"
+s:Ge/JawX/Color = "white"
+## JawY
+s:Ge/JawY/Type = "TsJaws"
+s:Ge/JawY/Parent = "IEC_B"
+s:Ge/JawY/Material = "G4_W"
+d:Ge/JawY/LX = 20. cm 
+d:Ge/JawY/LY = 30. cm
+d:Ge/JawY/LZ = 7.8 cm
+s:Ge/JawY/JawTravelAxis = "Yb"
+d:Ge/JawY/SAD = Ge/SSD cm
+dc:Ge/JawY/SourceToUpstreamSurfaceDistance = 27.53 cm # Distancia desde el target hasta el jaw
+d:Ge/JawY/DistSourceToSAD = Ge/JawY/SAD - Ge/JawY/SourceToUpstreamSurfaceDistance cm
+d:Ge/JawY/HalfLZ = 0.5 * Ge/JawY/LZ cm
+d:Ge/JawY/TransZ = Ge/JawY/DistSourceToSAD - Ge/JawY/HalfLZ cm
+dc:Ge/JawY/NegativeFieldSetting = -10. cm
+dc:Ge/JawY/PositiveFieldSetting = 10. cm
+d:Ge/JawY/JawRotZforTravelAlongIECX = 0. deg
+d:Ge/JawY/JawRotZforTravelAlongIECY = -90. deg
+d:Ge/JawY/RotZ= Ge/JawY/JawRotZforTravelAlongIECY deg
+s:Ge/JawY/DrawingStyle = "Solid"
+s:Ge/JawY/Color = "brown"
+
+# Definición de la Fuente - Espacio de Fase
+
+s:Ge/PhSpComponent/Type = "Group"
+s:Ge/PhSpComponent/Parent = "IEC_B"
+d:Ge/PhSpComponent/TransX = 0. cm
+d:Ge/PhSpComponent/TransY = 0. cm
+dc:Ge/PhSpComponent/TransZ = 0. cm
+d:Ge/PhSpComponent/RotX = 180. deg
+s:So/PhSp/Type = "PhaseSpace"
+s:So/PhSp/Component = "PhSpComponent"
+s:So/PhSp/PhaseSpaceFileName = "EspaciosDeFase/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_1"
+#s:So/PhSp/PhaseSpaceFileName = "EspaciosDeFase/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_2"
+#s:So/PhSp/PhaseSpaceFileName = "EspaciosDeFase/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_3"
+b:So/PhSp/PhaseSpacePreCheck = "False" # Desactiva la función de lectura del PHSP antes de ejecutar la simulación
+i:So/PhSp/PreCheckShowParticleCountAtInterval = 1000000
+i:So/PhSp/PhaseSpaceMultipleUse = 4 # En 0 usa SIEMPRE las historias de NumberOfHistoriesInRun; en 1 o más lee (una o más veces) todo el phsp salvo que se le indique lo contrario
+b:So/PhSp/LimitedAssumeEveryParticleIsNewHistory = "True"
+b:So/PhSp/LimitedAssumeFirstParticleIsNewHistory = "True"
+b:So/PhSp/LimitedAssumePhotonIsNewHistory = "True"
+#i:So/PhSp/NumberOfHistoriesInRun = 10
+
+# Esquema de Puntuación
+
+s:Ge/World/Message = "Resultados/LINAC_"
+
+## PDD
+s:Ge/PDD/Type = "TsBox"
+s:Ge/PDD/Parent = "IEC_P"
+b:Ge/PDD/IsParallel = "True"
+s:Ge/PDD/ParallelWorldName = "ScoringWorld_PDD"
+s:Ge/PDD/Color = "blue"
+d:Ge/PDD/HLX = 2.44 mm
+d:Ge/PDD/HLY = 2.44 mm
+d:Ge/PDD/HLZ = 15. cm
+d:Ge/PDD/TransX = 0. cm
+d:Ge/PDD/TransY = 0. cm
+d:Ge/PDD/TransZ = 0.5 cm
+d:Ge/PDD/RotX = 180. deg
+b:Ge/PDD/IsVolumetricallyDivided = "True"
+i:Ge/PDD/XBins = 1
+i:Ge/PDD/YBins = 1
+i:Ge/PDD/ZBins = 320
+s:Sc/PDD/Quantity = "DoseToMedium"
+s:Sc/PDD/Component = "PDD"
+b:Sc/PDD/PreCalculateStoppingPowerRatios = "True"
+s:Sc/PDD/OutputFile = Ge/World/Message + "PDD"
+s:Sc/PDD/OutputType = "csv"
+s:Sc/PDD/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PDD/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
+## Perfil transversal X
+s:Ge/PerfilX/Type = "TsBox"
+s:Ge/PerfilX/Parent = "IEC_P"
+b:Ge/PerfilX/IsParallel = "True"
+s:Ge/PerfilX/ParallelWorldName = "ScoringWorld_PerfilX"
+s:Ge/PerfilX/Color = "red"
+d:Ge/PerfilX/HLX = 10. cm
+d:Ge/PerfilX/HLY = 2.44 mm
+d:Ge/PerfilX/HLZ = 2.44 mm
+d:Ge/PerfilX/TransX = 0. cm
+d:Ge/PerfilX/TransY = 0. cm
+d:Ge/PerfilX/TransZ = 10. cm
+b:Ge/PerfilX/IsVolumetricallyDivided = "True"
+i:Ge/PerfilX/XBins = 200
+i:Ge/PerfilX/YBins = 1
+i:Ge/PerfilX/ZBins = 1
+s:Sc/PerfilX/Quantity = "DoseToMedium"
+s:Sc/PerfilX/Component = "PerfilX"
+b:Sc/PerfilX/PreCalculateStoppingPowerRatios = "True"
+s:Sc/PerfilX/OutputFile = Ge/World/Message + "PerfilX"
+s:Sc/PerfilX/OutputType = "csv"
+s:Sc/PerfilX/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PerfilX/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
+## Perfil transversal Y
+s:Ge/PerfilY/Type = "TsBox"
+s:Ge/PerfilY/Parent = "IEC_P"
+b:Ge/PerfilY/IsParallel = "True"
+s:Ge/PerfilY/ParallelWorldName = "ScoringWorld_PerfilY"
+s:Ge/PerfilY/Color = "green"
+d:Ge/PerfilY/HLX = 2.44 mm
+d:Ge/PerfilY/HLY = 10. cm
+d:Ge/PerfilY/HLZ = 2.44 mm
+d:Ge/PerfilY/TransX = 0. cm
+d:Ge/PerfilY/TransY = 0. cm
+d:Ge/PerfilY/TransZ = 10. cm
+b:Ge/PerfilY/IsVolumetricallyDivided = "True"
+i:Ge/PerfilY/XBins = 1
+i:Ge/PerfilY/YBins = 200
+i:Ge/PerfilY/ZBins = 1
+s:Sc/PerfilY/Quantity = "DoseToMedium"
+s:Sc/PerfilY/Component = "PerfilY"
+b:Sc/PerfilY/PreCalculateStoppingPowerRatios = "True"
+s:Sc/PerfilY/OutputFile = Ge/World/Message + "PerfilY"
+s:Sc/PerfilY/OutputType = "csv"
+s:Sc/PerfilY/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PerfilY/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
+
+# Técnicas de Reducción de Varianza
+
+b:Vr/UseVarianceReduction = "False"
+
+s:Ge/Biasing/Type = "TsBox"
+s:Ge/Biasing/Parent = "IEC_B"
+d:Ge/Biasing/HLX = 12. cm
+d:Ge/Biasing/HLY = 12. cm
+d:Ge/Biasing/HLZ = 0.25 cm
+d:Ge/Biasing/TransZ = -0.25 cm
+d:Ge/Biasing/RotX = 180. deg
+#s:Ge/Biasing/Material = "Air"
+#s:Ge/Biasing/Color = "yellow"
+s:Ge/Biasing/DrawingStyle = "Wireframe"
+b:Ge/Biasing/IsParallel = "True"
+
+s:Ge/SubcompBiasing1/Type = "TsBox"
+s:Ge/SubcompBiasing1/Parent = "Biasing"
+d:Ge/SubcompBiasing1/HLX = 12. cm
+d:Ge/SubcompBiasing1/HLY = 12. cm
+d:Ge/SubcompBiasing1/HLZ = 0.125 cm
+d:Ge/SubcompBiasing1/TransZ = 0.125 cm
+#s:Ge/SubcompBiasing1/Material = "Air"
+s:Ge/SubcompBiasing1/Color = "yellow"
+s:Ge/SubcompBiasing1/DrawingStyle = "Wireframe"
+b:Ge/SubcompBiasing1/IsParallel = "True"
+
+s:Ge/SubcompBiasing2/Type = "TsBox"
+s:Ge/SubcompBiasing2/Parent = "Biasing"
+d:Ge/SubcompBiasing2/HLX = 12. cm
+d:Ge/SubcompBiasing2/HLY = 12. cm
+d:Ge/SubcompBiasing2/HLZ = 0.125 cm
+d:Ge/SubcompBiasing2/TransZ = -0.125 cm
+#s:Ge/SubcompBiasing2/Material = "Air"
+s:Ge/SubcompBiasing2/Color = "red"
+s:Ge/SubcompBiasing2/DrawingStyle = "Wireframe"
+b:Ge/SubcompBiasing2/IsParallel = "True"
+
+b:Vr/ParticleSplit/Active = "False"
+s:Vr/ParticleSplit/Type = "GeometricalParticleSplit"
+sv:Vr/ParticleSplit/ParticleName = 1 "gamma"
+s:Vr/ParticleSplit/Component = "Biasing"
+sv:Vr/ParticleSplit/SubComponents = 2 "SubcompBiasing2" "SubcompBiasing1"
+s:Vr/ParticleSplit/SplitAxis = "zaxis"
+#sv:Vr/ParticleSplit/ForRegion/RegionBiasing/ProcessesNamed = 2 "eBrem" "compt"
+iv:Vr/ParticleSplit/SplitNumber = 2 100 100 
+bv:Vr/ParticleSplit/Symmetric = 2 "True" "True"
+d:Vr/ParticleSplit/RussianRoulette/ROIRadius = 15. cm
+d:Vr/ParticleSplit/RussianRoulette/ROITrans = -15. cm
+bv:Vr/ParticleSplit/RussianRoulette = 2 "False" "False"
+#dv:Vr/ParticleSplit/ForRegion/RegionBiasing/MaximumEnergies = 2 6.0 0.511 MeV
