@@ -209,9 +209,9 @@ dc:Ge/PhSpComponent/TransZ = 0. cm
 d:Ge/PhSpComponent/RotX = 180. deg
 s:So/PhSp/Type = "PhaseSpace"
 s:So/PhSp/Component = "PhSpComponent"
-s:So/PhSp/PhaseSpaceFileName = "EspaciosDeFase/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_1"
-#s:So/PhSp/PhaseSpaceFileName = "EspaciosDeFase/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_2"
-#s:So/PhSp/PhaseSpaceFileName = "EspaciosDeFase/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_3"
+s:So/PhSp/PhaseSpaceFileName = "PhaseSpaces/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_1"
+#s:So/PhSp/PhaseSpaceFileName = "PhaseSpaces/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_2"
+#s:So/PhSp/PhaseSpaceFileName = "PhaseSpaces/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_3"
 b:So/PhSp/PhaseSpacePreCheck = "False" # Desactiva la función de lectura del PHSP antes de ejecutar la simulación
 i:So/PhSp/PreCheckShowParticleCountAtInterval = 1000000
 i:So/PhSp/PhaseSpaceMultipleUse = 4 # En 0 usa SIEMPRE las historias de NumberOfHistoriesInRun; en 1 o más lee (una o más veces) todo el phsp salvo que se le indique lo contrario
@@ -222,7 +222,7 @@ b:So/PhSp/LimitedAssumePhotonIsNewHistory = "True"
 
 # Esquema de Puntuación
 
-s:Ge/World/Message = "Resultados/LINAC_"
+s:Ge/World/Message = "Results/LINAC_"
 
 ## PDD
 s:Ge/PDD/Type = "TsBox"

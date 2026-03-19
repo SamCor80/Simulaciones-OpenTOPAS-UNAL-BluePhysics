@@ -1,0 +1,23 @@
+# Archivo de parámetros donde se define el colimador multihojas (MLC) que hace parte del sistema de colimación secundario
+# del LINAC. El MLC consiste en 62 hojas, siendo la primera y la última de mayor grosor. De forma predeterminada, sigue
+# el sistema de coordenadas definidos en el IEC 61217-2011 (IEC_B)
+
+
+
+s:Ge/MLC/Type = "TsDivergingMLC"
+s:Ge/MLC/Parent = "IEC_B"
+s:Ge/MLC/Material = "G4_W"
+d:Ge/MLC/SAD = 100. cm
+d:Ge/MLC/SourceToUpstreamSurfaceDistance = 35.33 cm # Modificable en el Main. Distancia entre el target hasta el MLC
+d:Ge/MLC/Thickness = 7.8 cm
+d:Ge/MLC/Length = 30. cm
+d:Ge/MLC/MaximumLeafOpen = 15. cm
+s:Ge/MLC/LeafTravelAxis = "Yb"
+dv:Ge/MLC/LeafWidths = 62 20. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 5. 20. mm
+dv:Ge/MLC/NegativeFieldSetting = 62 0. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10 -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. -10. 0. cm # Modificable desde el Main
+dv:Ge/MLC/PositiveFieldSetting = 62 0. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 0. cm # Modificable desde el Main
+d:Ge/MLC/DistSourceToSAD = Ge/MLC/SAD - Ge/MLC/SourceToUpstreamSurfaceDistance cm
+d:Ge/MLC/HalfT = 0.5 * Ge/MLC/Thickness cm
+d:Ge/MLC/TransZ = Ge/MLC/DistSourceToSAD - Ge/MLC/HalfT cm
+s:Ge/MLC/DrawingStyle = "Solid"
+s:Ge/MLC/Color = "yellow"

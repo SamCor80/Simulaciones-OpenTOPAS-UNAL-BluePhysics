@@ -1,0 +1,49 @@
+# Archivo de parámetros donde se definen las mandíbulas (Jaws) que hacen parte del sistema de colimación secundario
+# del LINAC. Se definen dos pares perpendiculares entre sí, siguiendo de forma predeterminada los sistemas de coorde-
+# nadas definidos en el IEC 61217-2011 (IEC_B)
+
+
+
+# JawsX:
+
+s:Ge/JawsX/Type = "TsJaws"
+s:Ge/JawsX/Parent = "IEC_B"
+s:Ge/JawsX/Material = "G4_W"
+d:Ge/JawsX/LX = 20. cm
+d:Ge/JawsX/LY = 30. cm
+d:Ge/JawsX/LZ = 7.8 cm
+s:Ge/JawsX/JawTravelAxis = "Xb"
+d:Ge/JawsX/SAD = 100. cm # Modificable en el Main
+d:Ge/JawsX/SourceToUpstreamSurfaceDistance = 19.73 cm # Modificable en el Main. Distancia entre el target hasta los jawsX
+d:Ge/JawsX/DistSourceToSAD = Ge/JawsX/SAD - Ge/JawsX/SourceToUpstreamSurfaceDistance cm
+d:Ge/JawsX/HalfLZ = 0.5 * Ge/JawsX/LZ cm
+d:Ge/JawsX/TransZ = Ge/JawsX/DistSourceToSAD - Ge/JawsX/HalfLZ cm
+d:Ge/JawsX/NegativeFieldSetting = -10. cm # Modificable desde el Main
+d:Ge/JawsX/PositiveFieldSetting = 10. cm # Modificable desde el Main
+d:Ge/JawsX/JawRotZforTravelAlongIECX = 0. deg
+d:Ge/JawsX/JawRotZforTravelAlongIECY = -90. deg
+d:Ge/JawsX/RotZ = Ge/JawsX/JawRotZforTravelAlongIECX deg
+s:Ge/JawsX/DrawingStyle = "Solid"
+s:Ge/JawsX/Color = "white"
+
+# JawsY:
+
+s:Ge/JawsY/Type = "TsJaws"
+s:Ge/JawsY/Parent = "IEC_B"
+s:Ge/JawsY/Material = "G4_W"
+d:Ge/JawsY/LX = 20. cm
+d:Ge/JawsY/LY = 30. cm
+d:Ge/JawsY/LZ = 7.8 cm
+s:Ge/JawsY/JawTravelAxis = "Yb"
+d:Ge/JawsY/SAD = 100. cm # Modificable en el Main
+d:Ge/JawsY/SourceToUpstreamSurfaceDistance = 27.53 cm # Modificable en el Main. Distancia entre el target hasta los jawsY
+d:Ge/JawsY/DistSourceToSAD = Ge/JawsY/SAD - Ge/JawsY/SourceToUpstreamSurfaceDistance cm
+d:Ge/JawsY/HalfLZ = 0.5 * Ge/JawsY/LZ cm
+d:Ge/JawsY/TransZ = Ge/JawsY/DistSourceToSAD - Ge/JawsY/HalfLZ cm
+d:Ge/JawsY/NegativeFieldSetting = -10. cm # Modificable desde el Main
+d:Ge/JawsY/PositiveFieldSetting = 10. cm # Modificable desde el Main
+d:Ge/JawsY/JawRotZforTravelAlongIECX = 0. deg
+d:Ge/JawsY/JawRotZforTravelAlongIECY = -90. deg
+d:Ge/JawsY/RotZ = Ge/JawsY/JawRotZforTravelAlongIECY deg
+s:Ge/JawsY/DrawingStyle = "Solid"
+s:Ge/JawsY/Color = "white"

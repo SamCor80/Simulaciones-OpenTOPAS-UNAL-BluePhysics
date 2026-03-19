@@ -1,0 +1,77 @@
+# Archivo de parámetros donde se define el esquema de puntuación (scorers) de la simulación para una fuente de espacios de fase. 
+# Se considera de forma predeterminada el sistema de coordenadas descrito en la IEC 61217-2011 (IEC_P)
+
+
+
+s:Ge/Message = "Results/PhSp_"
+
+# PDD
+s:Ge/PDD/Type = "TsBox"
+s:Ge/PDD/Parent = "IEC_P"
+b:Ge/PDD/IsParallel = "True"
+s:Ge/PDD/ParallelWorldName = "ScoringWorld_PDD"
+s:Ge/PDD/Color = "blue"
+d:Ge/PDD/HLX = 2.44 mm
+d:Ge/PDD/HLY = 2.44 mm
+d:Ge/PDD/HLZ = 15. cm
+d:Ge/PDD/TransX = 0. cm
+d:Ge/PDD/TransY = 0. cm
+d:Ge/PDD/TransZ = 0.5 cm
+d:Ge/PDD/RotX = 180. deg
+b:Ge/PDD/IsVolumetricallyDivided = "True"
+i:Ge/PDD/XBins = 1
+i:Ge/PDD/YBins = 1
+i:Ge/PDD/ZBins = 320
+s:Sc/PDD/Quantity = "DoseToMedium"
+s:Sc/PDD/Component = "PDD"
+b:Sc/PDD/PreCalculateStoppingPowerRatios = "True"
+s:Sc/PDD/OutputFile = Ge/Message + "PDD"
+s:Sc/PDD/OutputType = "csv"
+s:Sc/PDD/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PDD/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
+## Perfil transversal X
+s:Ge/PerfilX/Type = "TsBox"
+s:Ge/PerfilX/Parent = "IEC_P"
+b:Ge/PerfilX/IsParallel = "True"
+s:Ge/PerfilX/ParallelWorldName = "ScoringWorld_PerfilX"
+s:Ge/PerfilX/Color = "red"
+d:Ge/PerfilX/HLX = 10. cm
+d:Ge/PerfilX/HLY = 2.44 mm
+d:Ge/PerfilX/HLZ = 2.44 mm
+d:Ge/PerfilX/TransX = 0. cm
+d:Ge/PerfilX/TransY = 0. cm
+d:Ge/PerfilX/TransZ = 10. cm
+b:Ge/PerfilX/IsVolumetricallyDivided = "True"
+i:Ge/PerfilX/XBins = 200
+i:Ge/PerfilX/YBins = 1
+i:Ge/PerfilX/ZBins = 1
+s:Sc/PerfilX/Quantity = "DoseToMedium"
+s:Sc/PerfilX/Component = "PerfilX"
+b:Sc/PerfilX/PreCalculateStoppingPowerRatios = "True"
+s:Sc/PerfilX/OutputFile = Ge/Message + "PerfilX"
+s:Sc/PerfilX/OutputType = "csv"
+s:Sc/PerfilX/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PerfilX/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"
+## Perfil transversal Y
+s:Ge/PerfilY/Type = "TsBox"
+s:Ge/PerfilY/Parent = "IEC_P"
+b:Ge/PerfilY/IsParallel = "True"
+s:Ge/PerfilY/ParallelWorldName = "ScoringWorld_PerfilY"
+s:Ge/PerfilY/Color = "green"
+d:Ge/PerfilY/HLX = 2.44 mm
+d:Ge/PerfilY/HLY = 10. cm
+d:Ge/PerfilY/HLZ = 2.44 mm
+d:Ge/PerfilY/TransX = 0. cm
+d:Ge/PerfilY/TransY = 0. cm
+d:Ge/PerfilY/TransZ = 10. cm
+b:Ge/PerfilY/IsVolumetricallyDivided = "True"
+i:Ge/PerfilY/XBins = 1
+i:Ge/PerfilY/YBins = 200
+i:Ge/PerfilY/ZBins = 1
+s:Sc/PerfilY/Quantity = "DoseToMedium"
+s:Sc/PerfilY/Component = "PerfilY"
+b:Sc/PerfilY/PreCalculateStoppingPowerRatios = "True"
+s:Sc/PerfilY/OutputFile = Ge/Message + "PerfilY"
+s:Sc/PerfilY/OutputType = "csv"
+s:Sc/PerfilY/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/PerfilY/Report = 4 "Sum" "Mean" "Standard_Deviation" "Count_In_Bin"

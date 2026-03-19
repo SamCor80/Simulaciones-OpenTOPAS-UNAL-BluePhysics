@@ -1,0 +1,23 @@
+# Archivo de parámetros donde se define la fuente de la simulación a partir de archivos de espacio de fase. Se considera de forma
+# predeterminada el sistema de coordenadas descrito en la IEC 61217-2011 (IEC_B)
+
+
+
+s:Ge/PhSpComponent/Type = "Group"
+s:Ge/PhSpComponent/Parent = "IEC_B"
+d:Ge/PhSpComponent/TransX = 0. cm
+d:Ge/PhSpComponent/TransY = 0. cm
+dc:Ge/PhSpComponent/TransZ = 0. cm
+d:Ge/PhSpComponent/RotX = 180. deg
+s:So/PhSp/Type = "PhaseSpace"
+s:So/PhSp/Component = "PhSpComponent"
+s:So/PhSp/PhaseSpaceFileName = "../../PhaseSpaces/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_1"
+#s:So/PhSp/PhaseSpaceFileName = "../../PhaseSpaces/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_2"
+#s:So/PhSp/PhaseSpaceFileName = "../../PhaseSpaces/Varian_Clinac_iX/Varian_Clinac_iX_6MV_10x10_3"
+b:So/PhSp/PhaseSpacePreCheck = "False" # Desactiva la función de lectura del PHSP antes de ejecutar la simulación
+i:So/PhSp/PreCheckShowParticleCountAtInterval = 1000000
+i:So/PhSp/PhaseSpaceMultipleUse = 4 # En 0 usa SIEMPRE las historias de NumberOfHistoriesInRun; en 1 o más lee (una o más veces) todo el phsp salvo que se le indique lo contrario
+b:So/PhSp/LimitedAssumeEveryParticleIsNewHistory = "True"
+b:So/PhSp/LimitedAssumeFirstParticleIsNewHistory = "True"
+b:So/PhSp/LimitedAssumePhotonIsNewHistory = "True"
+#i:So/PhSp/NumberOfHistoriesInRun = 10

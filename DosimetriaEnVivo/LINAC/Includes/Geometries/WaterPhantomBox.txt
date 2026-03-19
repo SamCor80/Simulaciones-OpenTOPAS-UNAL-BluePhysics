@@ -1,0 +1,16 @@
+# Archivo de parámetros donde se define una caja que simula un fantoma de agua simple. Se define de forma predeterminada los 
+# sistemas de coordenadas definidos en el IEC 61217-2011 (IEC_P)
+
+
+
+s:Ge/Phantom/Type = "TsBox"
+s:Ge/Phantom/Parent = "IEC_P"
+s:Ge/Phantom/Material = "G4_WATER"
+s:Ge/Phantom/Color = "lightblue"
+s:Ge/Phantom/DrawingStyle = "Wireframe" # "Wireframe" "FullWireFrame"
+d:Ge/Phantom/HLX = 15. cm 
+d:Ge/Phantom/HLY = 15. cm
+d:Ge/Phantom/HLZ = 15. cm
+d:Ge/Phantom/TransX = 0. cm
+d:Ge/Phantom/TransY = -0.5 cm
+d:Ge/Phantom/TransZ = 0. cm

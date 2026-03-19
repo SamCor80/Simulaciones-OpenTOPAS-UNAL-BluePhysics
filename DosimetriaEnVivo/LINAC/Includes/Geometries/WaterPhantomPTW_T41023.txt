@@ -1,0 +1,50 @@
+# Archivo de parámetros donde se define un fantoma de agua PTW Type 41023. La geometría contempla las paredes de PMMA
+# y la ventana de entrada de 17x17 cm2. Se define de forma predeterminada los sistemas de coordenadas definidos en el 
+# IEC 61217-2011 (IEC_P)
+# REQUIERE "Materials.txt"
+
+
+
+# Includes:
+
+includeFile = Materials.txt
+
+# Fantoma de Agua PTW T41023
+
+# Paredes
+s:Ge/Phantom/Type = "TsBox"
+s:Ge/Phantom/Parent = "IEC_P"
+s:Ge/Phantom/Material = "PMMA"
+s:Ge/Phantom/Color = "gray"
+d:Ge/Phantom/HLX = 15. cm
+d:Ge/Phantom/HLY = 15. cm
+d:Ge/Phantom/HLZ = 15. cm
+d:Ge/Phantom/TransX = 0. cm
+d:Ge/Phantom/TransY = 0. cm
+d:Ge/Phantom/TransZ = -0.5 cm 
+dc:Ge/Phantom/RotX = 90. deg
+d:Ge/Phantom/RotY = 0. deg
+d:Ge/Phantom/RotZ = 0. deg
+# Geometría para la ventana de entrada del haz
+s:Ge/PhantomWindow/Type = "TsBox"
+s:Ge/PhantomWindow/Parent = "Phantom"
+s:Ge/PhantomWindow/Material = "Air"
+s:Ge/PhantomWindow/Color = "gray"
+d:Ge/PhantomWindow/HLX = 8.5 cm
+d:Ge/PhantomWindow/HLY = 8.5 cm
+d:Ge/PhantomWindow/HLZ = 0.35 cm
+d:Ge/PhantomWindow/TransX = 0. cm
+d:Ge/PhantomWindow/TransY = 0. cm
+d:Ge/PhantomWindow/TransZ = -14.65 cm
+# Agua
+s:Ge/PhantomWater/Type = "TsBox"
+s:Ge/PhantomWater/Parent = "Phantom"
+s:Ge/PhantomWater/Material = "G4_WATER"
+s:Ge/PhantomWater/Color = "lightblue"
+s:Ge/PhantomWater/DrawingStyle = "Wireframe" # "Wireframe" "FullWireFrame"
+d:Ge/PhantomWater/HLX = 14. cm 
+d:Ge/PhantomWater/HLY = 14.5 cm
+d:Ge/PhantomWater/HLZ = 14. cm
+d:Ge/PhantomWater/TransX = 0. cm
+d:Ge/PhantomWater/TransY = -0.5 cm
+d:Ge/PhantomWater/TransZ = 0. cm
