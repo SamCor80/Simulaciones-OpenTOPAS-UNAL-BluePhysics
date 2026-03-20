@@ -5,7 +5,7 @@
 # Includes:
 
 # Geometrías
-includeFile = Includes/Geometries/Jaws.txt Includes/Geometries/MLC.txt Includes/Geometries/WaterPhantomBox.txt
+includeFile = Includes/Geometries/Jaws.txt Includes/Geometries/MLC.txt Includes/Geometries/WaterPhantomPTW_T41023.txt
 # Fuente
 includeFile = Includes/Source/PhaseSpaceSource.txt
 # Scoring

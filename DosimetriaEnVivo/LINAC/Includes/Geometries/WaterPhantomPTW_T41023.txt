@@ -7,7 +7,7 @@
 
 # Includes:
 
-includeFile = Materials.txt
+includeFile = Includes/Geometries/Materials.txt
 
 # Fantoma de Agua PTW T41023
 
