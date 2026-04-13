@@ -1,0 +1,19 @@
+# Importación de archivos CAD
+# BodyFlex Model 317 - BluePhysics
+
+# DetectorOpticFiber
+
+s:Ge/BodyFlexM317/DetectorFiber/Parent = "BodyFlexM317"
+s:Ge/BodyFlexM317/DetectorFiber/Material = "Air"
+s:Ge/BodyFlexM317/DetectorFiber/Type = "TsCAD"
+s:Ge/BodyFlexM317/DetectorFiber/InputFile = "Includes/Geometries/BodyFlexModel317/DetectorOpticFiber"
+s:Ge/BodyFlexM317/DetectorFiber/FileFormat = "stl"
+d:Ge/BodyFlexM317/DetectorFiber/Units = 1. mm
+d:Ge/BodyFlexM317/DetectorFiber/TransX = 0. mm
+d:Ge/BodyFlexM317/DetectorFiber/TransY = 0. mm
+d:Ge/BodyFlexM317/DetectorFiber/TransZ = 0. mm
+d:Ge/BodyFlexM317/DetectorFiber/RotX = 0. deg
+d:Ge/BodyFlexM317/DetectorFiber/RotY = 0. deg
+d:Ge/BodyFlexM317/DetectorFiber/RotZ = 0. deg
+s:Ge/BodyFlexM317/DetectorFiber/Color = "green"
+s:Ge/BodyFlexM317/DetectorFiber/DrawingStyle = "Wireframe"

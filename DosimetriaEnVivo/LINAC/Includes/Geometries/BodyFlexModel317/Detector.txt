@@ -1,0 +1,19 @@
+# Importación de archivos CAD
+# BodyFlex Model 317 - BluePhysics
+
+# Detector
+
+s:Ge/BodyFlexM317/Detector/Parent = "BodyFlexM317"
+s:Ge/BodyFlexM317/Detector/Material = "G4_WATER"
+s:Ge/BodyFlexM317/Detector/Type = "TsCAD"
+s:Ge/BodyFlexM317/Detector/InputFile = "Includes/Geometries/BodyFlexModel317/Detector"
+s:Ge/BodyFlexM317/Detector/FileFormat = "stl"
+d:Ge/BodyFlexM317/Detector/Units = 1. mm
+d:Ge/BodyFlexM317/Detector/TransX = 0. mm
+d:Ge/BodyFlexM317/Detector/TransY = 0. mm
+d:Ge/BodyFlexM317/Detector/TransZ = 0. mm
+d:Ge/BodyFlexM317/Detector/RotX = 0. deg
+d:Ge/BodyFlexM317/Detector/RotY = 0. deg
+d:Ge/BodyFlexM317/Detector/RotZ = 0. deg
+s:Ge/BodyFlexM317/Detector/Color = "green"
+s:Ge/BodyFlexM317/Detector/DrawingStyle = "Wireframe"

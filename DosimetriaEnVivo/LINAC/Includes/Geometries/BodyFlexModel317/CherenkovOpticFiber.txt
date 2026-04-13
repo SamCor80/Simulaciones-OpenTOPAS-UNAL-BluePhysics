@@ -1,0 +1,19 @@
+# Importación de archivos CAD
+# BodyFlex Model 317 - BluePhysics
+
+# CherenkovOpticFiber
+
+s:Ge/BodyFlexM317/CherenkovFiber/Parent = "BodyFlexM317"
+s:Ge/BodyFlexM317/CherenkovFiber/Material = "G4_WATER"
+s:Ge/BodyFlexM317/CherenkovFiber/Type = "TsCAD"
+s:Ge/BodyFlexM317/CherenkovFiber/InputFile = "Includes/Geometries/BodyFlexModel317/CherenkovOpticFiber"
+s:Ge/BodyFlexM317/CherenkovFiber/FileFormat = "stl"
+d:Ge/BodyFlexM317/CherenkovFiber/Units = 1. mm
+d:Ge/BodyFlexM317/CherenkovFiber/TransX = 0. mm
+d:Ge/BodyFlexM317/CherenkovFiber/TransY = 0. mm
+d:Ge/BodyFlexM317/CherenkovFiber/TransZ = 0. mm
+d:Ge/BodyFlexM317/CherenkovFiber/RotX = 0. deg
+d:Ge/BodyFlexM317/CherenkovFiber/RotY = 0. deg
+d:Ge/BodyFlexM317/CherenkovFiber/RotZ = 0. deg
+s:Ge/BodyFlexM317/CherenkovFiber/Color = "yellow"
+s:Ge/BodyFlexM317/CherenkovFiber/DrawingStyle = "Wireframe"

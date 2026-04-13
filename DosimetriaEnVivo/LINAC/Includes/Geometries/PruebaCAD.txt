@@ -1,0 +1,15 @@
+# Assembly
+s:Ge/Assembly/Parent = "IEC_P"
+s:Ge/Assembly/Material = "Air"
+s:Ge/Assembly/Type = "TsCAD"
+s:Ge/Assembly/InputFile = Ge/FilePath + "Assembly"
+s:Ge/Assembly/FileFormat = "stl"
+d:Ge/Assembly/Units = 1. mm
+d:Ge/Assembly/TransX = 0. mm
+d:Ge/Assembly/TransY = 0. mm
+d:Ge/Assembly/TransZ = 0. mm
+d:Ge/Assembly/RotX = 0. deg
+d:Ge/Assembly/RotY = 0. deg
+d:Ge/Assembly/RotZ = 0. deg
+s:Ge/Assembly/Color = "white"
+s:Ge/Assembly/DrawingStyle = "Wireframe"

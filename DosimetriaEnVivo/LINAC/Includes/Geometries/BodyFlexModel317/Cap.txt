@@ -1,0 +1,19 @@
+# Importación de archivos CAD
+# BodyFlex Model 317 - BluePhysics
+
+# Cap
+
+s:Ge/BodyFlexM317/Cap/Parent = "BodyFlexM317"
+s:Ge/BodyFlexM317/Cap/Material = "Air"
+s:Ge/BodyFlexM317/Cap/Type = "TsCAD"
+s:Ge/BodyFlexM317/Cap/InputFile = "Includes/Geometries/BodyFlexModel317/Cap"
+s:Ge/BodyFlexM317/Cap/FileFormat = "stl"
+d:Ge/BodyFlexM317/Cap/Units = 1. mm
+d:Ge/BodyFlexM317/Cap/TransX = 0. mm
+d:Ge/BodyFlexM317/Cap/TransY = 0. mm
+d:Ge/BodyFlexM317/Cap/TransZ = 0. mm
+d:Ge/BodyFlexM317/Cap/RotX = 0. deg
+d:Ge/BodyFlexM317/Cap/RotY = 0. deg
+d:Ge/BodyFlexM317/Cap/RotZ = 0. deg
+s:Ge/BodyFlexM317/Cap/Color = "red"
+s:Ge/BodyFlexM317/Cap/DrawingStyle = "Wireframe"

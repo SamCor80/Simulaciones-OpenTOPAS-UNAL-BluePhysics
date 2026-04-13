@@ -1,0 +1,19 @@
+# Importación de archivos CAD
+# BodyFlex Model 317 - BluePhysics
+
+# Liquid
+
+s:Ge/BodyFlexM317/Liquid/Parent = "BodyFlexM317"
+s:Ge/BodyFlexM317/Liquid/Material = "Air"
+s:Ge/BodyFlexM317/Liquid/Type = "TsCAD"
+s:Ge/BodyFlexM317/Liquid/InputFile = "Includes/Geometries/BodyFlexModel317/Liquid"
+s:Ge/BodyFlexM317/Liquid/FileFormat = "stl"
+d:Ge/BodyFlexM317/Liquid/Units = 1. mm
+d:Ge/BodyFlexM317/Liquid/TransX = 0. mm
+d:Ge/BodyFlexM317/Liquid/TransY = 0. mm
+d:Ge/BodyFlexM317/Liquid/TransZ = 0. mm
+d:Ge/BodyFlexM317/Liquid/RotX = 0. deg
+d:Ge/BodyFlexM317/Liquid/RotY = 0. deg
+d:Ge/BodyFlexM317/Liquid/RotZ = 0. deg
+s:Ge/BodyFlexM317/Liquid/Color = "lightblue"
+s:Ge/BodyFlexM317/Liquid/DrawingStyle = "Wireframe"

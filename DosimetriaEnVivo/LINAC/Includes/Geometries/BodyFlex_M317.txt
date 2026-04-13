@@ -1,0 +1,27 @@
+# Importación de archivos CAD
+# Definición del detector BodyFlex Model 317 por partes
+
+s:Ge/BodyFlexM317/Type = "Group"
+s:Ge/BodyFlexM317/Parent = "IEC_P"
+d:Ge/BodyFlexM317/TransX = 0. mm
+d:Ge/BodyFlexM317/TransY = 0. mm
+d:Ge/BodyFlexM317/TransZ = 0. mm
+
+# Body
+#includeFile = Includes/Geometries/BodyFlexModel317/Body.txt
+# Cap
+#includeFile = Includes/Geometries/BodyFlexModel317/Cap.txt
+# Detector
+includeFile = Includes/Geometries/BodyFlexModel317/Detector.txt
+# Detector Optic Fiber
+includeFile = Includes/Geometries/BodyFlexModel317/DetectorOpticFiber.txt
+# Cherenkov Optic Fiber
+includeFile = Includes/Geometries/BodyFlexModel317/CherenkovOpticFiber.txt
+# Jacket
+includeFile = Includes/Geometries/BodyFlexModel317/Jacket.txt
+# Liquid
+#includeFile = Includes/Geometries/BodyFlexModel317/Liquid.txt
+
+
+
+
